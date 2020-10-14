@@ -34,7 +34,7 @@ const starRating = function (item) {
   }
 
   return stars.map(star => {
-    return `<label  tabindex="${star.rating}"  for="${ratingId(item.id, star.rating)}">
+    return `<label    for="${ratingId(item.id, star.rating)}">
     <span class="hidden">
      ${star.rating} 
     </span>

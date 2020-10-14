@@ -52,6 +52,17 @@ const updateRecord = function (id, updateData) {
   );
 };
 
+const editRecord = (id,updateData) =>{
+  return callApi(
+    `${endpoint}/${id}`,
+    {
+      method:'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(updateData)
+    }
+  );
+};
+
 const deleteRecord = function (id) {
   // delete record from database
   return callApi(
@@ -63,6 +74,7 @@ const deleteRecord = function (id) {
 };
 
 export default {
+  editRecord,
   createRecord,
   readRecords,
   updateRecord,

@@ -3,6 +3,7 @@ import store from './store';
 import api from './api';
 import { render } from './render';
 
+
 const findBookmarkId = function (target) {
   return $(target).closest('li').data('id');
 };
@@ -80,6 +81,12 @@ const handleAddNewBookmark = function () {
   });
 };
 
+
+
+
+
+
+
 const handleNewBookmarkRatingChange = function () {
   $('main').on('change', '.js-new-bookmark-rating', event => {
     const newBookmark = {
@@ -102,6 +109,7 @@ const handleFilterBookmarks = function () {
 };
 
 const bindEventHandlers = function () {
+  console.log('test');
   handleToggleExpandBookmark();
   handleRatingChange();
   handleDeleteBookmark();
@@ -112,3 +120,5 @@ const bindEventHandlers = function () {
 };
 
 export { bindEventHandlers };
+
+

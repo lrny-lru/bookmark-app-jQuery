@@ -1,5 +1,7 @@
 import store from './store';
 
+import { event } from 'jquery';
+
 const errorMessage = function () {
   return store.error ? `<footer class="error">API Error ${store.error.code}: ${store.error.message}</footer>` : '';
 };
@@ -33,7 +35,7 @@ const starRating = function (item) {
       Give a rating of ${star.rating} to ${item.title}
     </span>
     <i class="${star.class} fa-star"></i></label>
-    <input class='hidden' type="radio" ${star.checked}
+    <input class='hidden'aria-label='' type="radio" ${star.checked}
       name="rating" 
       id="${ratingId(item.id, star.rating)}" value="${star.rating}"/>`;
   }).join('');
@@ -55,6 +57,9 @@ const listItem = function (item) {
             <span class="hidden">Delete Bookmark</span>
             <i class="fas fa-trash-alt"></i>
           </button>
+          <button class="js-bookmark-edit bookmark-edit" id="bookmark-edit">
+            Edit
+          </button>
         </section>
       <section class="bookmark-body">
         <p class="bookmark-description">
@@ -74,6 +79,7 @@ const listItem = function (item) {
         <button class="bookmark-delete">
           <span class="hidden">Delete Bookmark</span>
           <i class="fas fa-trash-alt"></i>
+          <label class
         </button>
         <button class="js-bookmark-name bookmark-name">${item.title}</button>
         <div class="bookmark-rating js-bookmark-rating">
@@ -84,6 +90,7 @@ const listItem = function (item) {
     `;
   }
 };
+
 
 const bookmarkList = function (bookmarks) {
   let elementList = bookmarks.map(item => listItem(item));
@@ -102,6 +109,9 @@ const actionPalette = function () {
         <div class="new-bookmark-button-label">Add new bookmark</div>
       </button>
       <div class="filter-bookmarks">
+      <label for="filter-select">
+      Filter
+      </label>
         <select id="filter-select">
           <option disabled selected hidden>Filter by</option>
           <option value=5>Show 5 Stars</option>
@@ -139,7 +149,7 @@ const newBookmarkForm = function () {
         </p >
         <p><label class="hidden" for="new-bookmark-url">
     New Bookmark Url</label>
-          <input class="new-bookmark-form-input" type="url" name="url" id="new-bookmark-url"
+          <input  class="new-bookmark-form-input" type="url" name="url" id="new-bookmark-url"
             placeholder="URL, eg. https://example.code" required ${url}/></p>
         <p><label class="hidden" for="new-bookmark-rating">
     New Bookmark Rating</label>
@@ -150,7 +160,7 @@ const newBookmarkForm = function () {
       </section >
       <section class="bookmark-body">
         <p><label class="hidden" for="new-bookmark-description">
-      New Bookmary Description</label>
+      New Bookmark Description</label>
           <textarea class="new-bookmark-form-input" name="desc" id="new-bookmark-description" rows=4 placeholder="Enter description">${description}</textarea>
         </p>
 
@@ -158,6 +168,8 @@ const newBookmarkForm = function () {
       </section >
     </form >
   `;
+  
+  
 };
 
 export default {

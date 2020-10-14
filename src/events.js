@@ -24,7 +24,7 @@ const handleNewBookmarkFormSubmit = function () {
       .catch(error => {
         store.error = error;
         render();
-        store.error = null;
+        
       });
   });
 };
@@ -53,7 +53,7 @@ const handleRatingChange = function () {
       .catch(error => {
         store.error = error;
         render();
-        store.error = null;
+        
       });
   });
 };
@@ -69,7 +69,7 @@ const handleDeleteBookmark = function () {
       .catch(error => {
         store.error = error;
         render();
-        store.error = null;
+        
       });
   });
 };

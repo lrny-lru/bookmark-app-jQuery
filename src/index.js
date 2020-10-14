@@ -21,7 +21,7 @@ const initStore = function () {
     .catch(error => {
       store.error = error;
       render();
-      store.error = null;
+      
     });
 };
 

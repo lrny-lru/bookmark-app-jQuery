@@ -2,13 +2,14 @@
   "name": "bookmark-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy":"npm run build && gh-pages -d dist"
   },
   "keywords": [],
-  "author": "Masha Trius",
+  "author": "Larue Joyner",
   "license": "ISC",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
@@ -17,11 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thinkful-ei-shark/masha-bookmarks-app.git"
+    "url": "https://lrny-lru.github.io/bookmark-app-jQuery/"
   },
   "devDependencies": {
     "css-loader": "^4.3.0",
     "file-loader": "^6.1.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.2",

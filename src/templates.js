@@ -16,8 +16,11 @@ const starRating = function (item) {
   for (let i = 1; i <= item.rating; i++) {
     stars.push({
       rating: i,
+      
       class: 'fas',
-      checked: i === item.rating ? 'checked' : ''
+      checked: i === item.rating ? 'checked' : '',
+      focusable: true
+
     });
   }
 
@@ -25,16 +28,17 @@ const starRating = function (item) {
     stars.push({
       rating: i + 1,
       class: 'far',
-      checked: ''
+      checked: '',
+      focusable: true
     });
   }
 
   return stars.map(star => {
-    return `<label  tabindex="1" for="${ratingId(item.id, star.rating)}">
+    return `<label  tabindex="${star.rating}"  for="${ratingId(item.id, star.rating)}">
     <span class="hidden">
-      Give a rating of ${star.rating} to ${item.title}
+     ${star.rating} 
     </span>
-    <i class="${star.class} fa-star"></i><input  class='hidden'  aria-label='' type="radio" ${star.checked}
+    <i class="${star.class}  fa-star"></i><input  class='hidden' tabindex="${star.rating}"   aria-label='${star.rating}' type="radio" ${star.checked}
     name="rating" 
     id="${ratingId(item.id, star.rating)}" value="${star.rating}"/></label>
    `;

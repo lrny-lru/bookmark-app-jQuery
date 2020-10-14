@@ -12,12 +12,7 @@ html {
   align-items: center;
 }
 
-.hidden {
-  display:none;
-  width:0;
-  overflow:hidden;
-  position: absolute;
-}
+
 
 h1 {
   text-align: center;
@@ -87,10 +82,10 @@ main {
   margin-top:0.3em;
 }
 #filter-select, .new-bookmark{
-  background-color:#635078 ;
+  background-color:#4E3582 ;
   border: 0;
   display: block;
-  border: 1px solid #635078;
+  border: 1px solid #4E3582;
   line-height: 1.5rem;
 }
 button.js-new-bookmark{
@@ -207,12 +202,12 @@ button.js-new-bookmark{
 
 #new-bookmark-desc {
   resize: none;
-  background-color:#c8d7e4;
+  background-color:#352D4E;
 }
 
 .new-bookmark-form-input {
   width: 100%;
-  background: #c8d7e4;
+  background: #352D4E;
   border: 1px solid #FCA17D ;
   padding: .25rem;
 }

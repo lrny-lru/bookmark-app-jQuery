@@ -1,5 +1,4 @@
 # Bookmark App
-##About
 
 [Live Demo](https://lrny-lru.github.io/bookmark-app-jQuery/)
 ## User Stories Completed:

@@ -109,7 +109,7 @@ const handleFilterBookmarks = function () {
 };
 
 const bindEventHandlers = function () {
-  console.log('test');
+  
   handleToggleExpandBookmark();
   handleRatingChange();
   handleDeleteBookmark();

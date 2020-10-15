@@ -35,10 +35,10 @@ const starRating = function (item) {
 
   return stars.map(star => {
     return `<label    for="${ratingId(item.id, star.rating)}">
-    <span class="hidden">
+    <span class="">
      ${star.rating} 
     </span>
-    <i class="${star.class}  fa-star"></i><input  class='hidden' tabindex="${star.rating}"   aria-label='${star.rating}' type="radio" ${star.checked}
+    <i class="${star.class}  fa-star"></i><input  class=' tabindex="${star.rating}"   aria-label='${star.rating}' type="radio" ${star.checked}
     name="rating" 
     id="${ratingId(item.id, star.rating)}" value="${star.rating}"/></label>
    `;
@@ -57,7 +57,7 @@ const listItem = function (item) {
           <div class="js-bookmark-rating bookmark-rating">
             ${starRating(item)}
           </div>
-          <button tabindex="1" class="js-bookmark-delete bookmark-delete">
+          <button aria-label="delete-button" tabindex="1" class="js-bookmark-delete bookmark-delete">
             <span class="hidden">Delete Bookmark</span>
             <i class="fas fa-trash-alt"></i>
           </button>
@@ -77,11 +77,10 @@ const listItem = function (item) {
     return `
     <li class="js-bookmark-item bookmark-item" data-id="${item.id}">
       <section class="bookmark-line">
-        <button tabindex="1" class="bookmark-delete">
-          <span class="hidden">Delete Bookmark</span>
-          <i class="fas fa-trash-alt"></i>
-          <label class
-        </button>
+      <button tabindex="1" area-label="delete-button" class="js-bookmark-delete bookmark-delete">
+      <span class="hidden">Delete Bookmark</span>
+      <i class="fas fa-trash-alt"></i>
+       </button>
         <button tabindex="1" class="js-bookmark-name bookmark-name">${item.title}</button>
         <div class="bookmark-rating js-bookmark-rating">
         ${starRating(item)}
@@ -105,22 +104,22 @@ const bookmarkList = function (bookmarks) {
 const actionPalette = function () {
   return `
     <section class="js-action-palette action-palette">
-      <button tabindex="1"  class="js-new-bookmark new-bookmark">
+      <button tabindex="0"  class="js-new-bookmark new-bookmark">
         <div class="new-bookmark-icon"><i class="fas fa-pencil-alt"></i></div>
-        <div class="new-bookmark-button-label">Add new bookmark</div>
+        <div aria-label="new-bookmark button label" class="new-bookmark-button-label">Add new bookmark</div>
       </button>
       <div class="filter-bookmarks">
       <label for="filter-select">
       Filter
       </label>
-        <select tabindex="1" id="filter-select">
+        <select aria-label="Select star filter" tabindex="1" id="filter-select">
           <option disabled selected hidden>Filter by</option>
-          <option value=5>Show 5 Stars</option>
-          <option value=4>Show 4+ Stars</option>
-          <option value=3>Show 3+ Stars</option>
-          <option value=2>Show 2+ Stars</option>
-          <option value=1>Show 1+ Stars</option>
-          <option value=0>Show All</option>
+          <option aria-label="show 5 stars" value=5>Show 5 Stars</option>
+          <option area-label="show 4 stars" value=4>Show 4+ Stars</option>
+          <option aria-label="show 3 stars" value=3>Show 3+ Stars</option>
+          <option aria-label="show 2 stars" value=2>Show 2+ Stars</option>
+          <option aria-label="show only 1 star" value=1>Show 1+ Stars</option>
+          <option aria-label="Show 0 stars" value=0>Show All</option>
         </select>
       </div>
     </section>
@@ -145,12 +144,12 @@ const newBookmarkForm = function () {
         <p>
           <label class="hidden" for="new-bookmark-name">
             New Bookmark name</label>
-          <input tabindex="1" class="new-bookmark-form-input" type="text" name="title" id="new-bookmark-name" placeholder="New Bookmark Name"
+          <input tabindex="0" aria class="new-bookmark-form-input" type="text" name="title" id="new-bookmark-name" placeholder="New Bookmark Name"
           required ${title}/>
         </p >
         <p><label class="hidden" for="new-bookmark-url">
     New Bookmark Url</label>
-          <input tabindex="1"  class="new-bookmark-form-input" type="url" name="url" id="new-bookmark-url"
+          <input tabindex="0"  class="new-bookmark-form-input" type="url" name="url" id="new-bookmark-url"
             placeholder="URL, eg. https://example.code" required ${url}/></p>
         <p><label class="hidden" for="new-bookmark-rating">
     New Bookmark Rating</label>
@@ -165,7 +164,7 @@ const newBookmarkForm = function () {
           <textarea tabindex="1" class="new-bookmark-form-input" name="desc" id="new-bookmark-description" rows=4 placeholder="Enter description">${description}</textarea>
         </p>
 
-        <p><button tabindex="1" type="submit" class="new-bookmark-form-input">Submit</button></p>
+        <p><button tabindex="0" type="submit" class="new-bookmark-form-input">Submit</button></p>
       </section >
     </form >
   `;

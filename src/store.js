@@ -13,6 +13,7 @@ const updateBookmark = function (id, newData) {
 const deleteBookmark = function (id) {
   this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
 };
+console.log(deleteBookmark, "line 16");
 
 
 const toggleExpandBookmark = function (id) {
